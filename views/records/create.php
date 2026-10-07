@@ -14,6 +14,8 @@
         <?php endif; ?>
 
         <form action="/domains/<?= $domain['id'] ?>/records/create" method="POST">
+            <input type="hidden" name="csrf_token" value="<?= csrf_token() ?>">
+
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>

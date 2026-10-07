@@ -12,6 +12,8 @@
             </span>
         </div>
         <form action="<?= url('/domains/' . $domain['id'] . '/delete') ?>" method="POST" onsubmit="return confirm('Are you sure you want to delete this domain? This cannot be undone.');">
+            <input type="hidden" name="csrf_token" value="<?= csrf_token() ?>">
+
             <button type="submit" class="inline-flex items-center px-3 py-1.5 border border-red-200 text-xs font-medium rounded text-red-600 bg-red-50 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors">
                 Delete Domain
             </button>
@@ -64,6 +66,8 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium font-sans">
                                     <a href="<?= url('/domains/' . $domain['id'] . '/records/' . $record['id'] . '/edit') ?>" class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
                                     <form action="<?= url('/domains/' . $domain['id'] . '/records/' . $record['id'] . '/delete') ?>" method="POST" class="inline" onsubmit="return confirm('Delete this record?');">
+            <input type="hidden" name="csrf_token" value="<?= csrf_token() ?>">
+
                                         <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>
                                     </form>
                                 </td>
