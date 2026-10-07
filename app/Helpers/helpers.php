@@ -15,12 +15,18 @@ function url($path) {
 
 function view($name, $data = []) {
     extract($data);
-    $path = __DIR__ . '/../../views/' . str_replace('.', '/', $name) . '.php';
-    if (file_exists($path)) {
-        require $path;
-    } else {
-        echo "View {$name} not found.";
+    
+    if (strpos($name, 'layouts.') === 0) {
+        $path = __DIR__ . '/../../views/' . str_replace('.', '/', $name) . '.php';
+        if (file_exists($path)) {
+            require $path;
+        }
+        return;
     }
+    
+    $data['content'] = $name;
+    extract($data);
+    require __DIR__ . '/../../views/layouts/app.php';
 }
 
 function redirect($url) {
