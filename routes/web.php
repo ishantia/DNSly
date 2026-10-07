@@ -1,5 +1,15 @@
 <?php
 
 $router->get('/', function() {
+    if (isset($_SESSION['user_id'])) {
+        redirect('/dashboard');
+    }
     view('layouts.app');
 });
+
+$router->get('/login', ['App\Controllers\AuthController', 'showLogin']);
+$router->post('/login', ['App\Controllers\AuthController', 'login']);
+$router->get('/register', ['App\Controllers\AuthController', 'showRegister']);
+$router->post('/register', ['App\Controllers\AuthController', 'register']);
+$router->get('/logout', ['App\Controllers\AuthController', 'logout']);
+
