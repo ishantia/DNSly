@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Block access to hidden files and directories
+    RewriteRule "(^|/)\." - [F]
+
+    # Route all requests to the public directory
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L,QSA]
+</IfModule>
+
+# Deny access to sensitive files
+<FilesMatch "^\.env|composer\.json|README\.md$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
