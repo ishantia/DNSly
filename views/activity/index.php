@@ -1,15 +1,15 @@
 <div class="mb-6">
-    <h1 class="text-2xl font-bold text-gray-900">Activity Log</h1>
-    <p class="text-gray-500 text-sm mt-1">Review your recent actions and account changes.</p>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Activity Log</h1>
+    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Review your recent actions and account changes.</p>
 </div>
 
-<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
     <?php if (empty($logs)): ?>
-        <div class="p-12 text-center text-gray-500">
+        <div class="p-12 text-center text-gray-500 dark:text-gray-400">
             No activity found.
         </div>
     <?php else: ?>
-        <div class="divide-y divide-gray-100">
+        <div class="divide-y divide-gray-100 dark:divide-gray-700">
             <?php foreach ($logs as $log): ?>
                 <div class="p-6 hover:bg-gray-50 transition-colors flex items-start gap-4">
                     <div class="bg-indigo-100 p-2 rounded-full mt-1">
@@ -18,8 +18,8 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="text-sm font-medium text-gray-900"><?= html_escape($log['description']) ?></p>
-                        <div class="mt-1 flex items-center gap-2 text-xs text-gray-500">
+                        <p class="text-sm font-medium text-gray-900 dark:text-gray-100"><?= html_escape($log['description']) ?></p>
+                        <div class="mt-1 flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
                             <span><?= html_escape(date('M j, Y H:i:s', strtotime($log['created_at']))) ?></span>
                             <span>&bull;</span>
                             <span class="font-mono text-gray-400"><?= html_escape($log['ip_address'] ?? 'Unknown IP') ?></span>
