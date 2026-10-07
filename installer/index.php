@@ -131,7 +131,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     
                     <div>
                         <label class="block text-sm font-medium text-gray-700">App URL</label>
-                        <input type="url" name="app_url" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" value="<?= htmlspecialchars($_SERVER['REQUEST_SCHEME'] ?? 'http') . '://' . htmlspecialchars($_SERVER['HTTP_HOST']) ?>" required>
+                        <?php
+                        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+                        $host = $_SERVER['HTTP_HOST'];
+                        $scriptName = dirname(dirname($_SERVER['SCRIPT_NAME'])); // e.g. /DNSly
+                        $scriptName = str_replace('\\', '/', $scriptName);
+                        if ($scriptName === '/') $scriptName = '';
+                        $defaultAppUrl = $protocol . $host . $scriptName;
+                        ?>
+                        <input type="url" name="app_url" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" value="<?= htmlspecialchars($defaultAppUrl) ?>" required>
                     </div>
 
                     <div class="pt-4 border-t border-gray-200">
@@ -193,7 +201,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
 
                     <div class="mt-6">
-                        <a href="/" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <a href="<?= htmlspecialchars($appUrl ?? '/') ?>" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             Go to App
                         </a>
                     </div>

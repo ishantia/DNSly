@@ -7,6 +7,12 @@ function env($key, $default = null) {
     return $default;
 }
 
+function url($path) {
+    $path = ltrim($path, '/');
+    $baseUrl = rtrim(env('APP_URL', 'http://localhost'), '/');
+    return $baseUrl . '/' . $path;
+}
+
 function view($name, $data = []) {
     extract($data);
     $path = __DIR__ . '/../../views/' . str_replace('.', '/', $name) . '.php';
@@ -18,6 +24,10 @@ function view($name, $data = []) {
 }
 
 function redirect($url) {
+    // If it's an absolute path, prepend the base URL
+    if (strpos($url, '/') === 0) {
+        $url = url($url);
+    }
     header("Location: {$url}");
     exit;
 }

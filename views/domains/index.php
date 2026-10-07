@@ -1,6 +1,6 @@
 <div class="flex justify-between items-center mb-6">
     <h1 class="text-2xl font-bold text-gray-900">Domains</h1>
-    <a href="/domains/create" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+    <a href="<?= url('/domains/create') ?>" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
         Add Domain
     </a>
 </div>
@@ -14,7 +14,7 @@
             <h3 class="mt-2 text-sm font-medium text-gray-900">No domains</h3>
             <p class="mt-1 text-sm text-gray-500">Get started by creating a new domain.</p>
             <div class="mt-6">
-                <a href="/domains/create" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <a href="<?= url('/domains/create') ?>" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     Add Domain
                 </a>
             </div>
@@ -45,7 +45,7 @@
                                 <?= html_escape(date('M j, Y', strtotime($domain['created_at']))) ?>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="/domains/<?= $domain['id'] ?>" class="text-indigo-600 hover:text-indigo-900 mr-3">Manage</a>
+                                <a href="<?= url('/domains/<?= $domain['id'] ?>') ?>" class="text-indigo-600 hover:text-indigo-900 mr-3">Manage</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

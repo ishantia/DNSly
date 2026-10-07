@@ -22,11 +22,11 @@
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
             <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
                 <h3 class="text-lg font-medium text-gray-900">Recent Domains</h3>
-                <a href="/domains" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">View all</a>
+                <a href="<?= url('/domains') ?>" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">View all</a>
             </div>
             <div class="divide-y divide-gray-100">
                 <?php if (empty($recent_domains)): ?>
-                    <div class="p-6 text-center text-gray-500 text-sm">No domains found. <a href="/domains/create" class="text-indigo-600">Create one</a>.</div>
+                    <div class="p-6 text-center text-gray-500 text-sm">No domains found. <a href="<?= url('/domains/create') ?>" class="text-indigo-600">Create one</a>.</div>
                 <?php else: ?>
                     <?php foreach ($recent_domains as $domain): ?>
                         <div class="px-6 py-4 flex items-center justify-between hover:bg-gray-50">

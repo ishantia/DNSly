@@ -21,25 +21,25 @@
             <div class="flex justify-between h-16">
                 <div class="flex">
                     <div class="flex-shrink-0 flex items-center">
-                        <a href="/" class="text-2xl font-bold text-indigo-600">DNSly</a>
+                        <a href="<?= url('/') ?>" class="text-2xl font-bold text-indigo-600">DNSly</a>
                     </div>
                 </div>
                 <div class="flex items-center">
                     <?php if (isset($_SESSION['user_id'])): ?>
-                        <a href="/dashboard" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
-                        <a href="/domains" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Domains</a>
-                        <a href="/activity" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Activity</a>
-                        <a href="/settings" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Settings</a>
+                        <a href="<?= url('/dashboard') ?>" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+                        <a href="<?= url('/domains') ?>" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Domains</a>
+                        <a href="<?= url('/activity') ?>" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Activity</a>
+                        <a href="<?= url('/settings') ?>" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Settings</a>
                         <?php if ($_SESSION['role'] === 'admin'): ?>
-                            <a href="/admin" class="text-indigo-600 hover:text-indigo-800 px-3 py-2 rounded-md text-sm font-medium">Admin</a>
+                            <a href="<?= url('/admin') ?>" class="text-indigo-600 hover:text-indigo-800 px-3 py-2 rounded-md text-sm font-medium">Admin</a>
                         <?php endif; ?>
                         <div class="ml-4 relative flex items-center gap-4">
                             <span class="text-sm text-gray-700 font-medium"><?= html_escape($_SESSION['username']) ?></span>
-                            <a href="/logout" class="text-gray-500 hover:text-gray-900 text-sm font-medium">Logout</a>
+                            <a href="<?= url('/logout') ?>" class="text-gray-500 hover:text-gray-900 text-sm font-medium">Logout</a>
                         </div>
                     <?php else: ?>
-                        <a href="/login" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Login</a>
-                        <a href="/register" class="ml-4 bg-indigo-600 text-white hover:bg-indigo-700 px-3 py-2 rounded-md text-sm font-medium">Register</a>
+                        <a href="<?= url('/login') ?>" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Login</a>
+                        <a href="<?= url('/register') ?>" class="ml-4 bg-indigo-600 text-white hover:bg-indigo-700 px-3 py-2 rounded-md text-sm font-medium">Register</a>
                     <?php endif; ?>
                 </div>
             </div>
