@@ -27,6 +27,14 @@ $router->get('/domains/{domain_id}/records/{id}/edit', ['App\Controllers\RecordC
 $router->post('/domains/{domain_id}/records/{id}/edit', ['App\Controllers\RecordController', 'update']);
 $router->post('/domains/{domain_id}/records/{id}/delete', ['App\Controllers\RecordController', 'delete']);
 
+$router->get('/activity', ['App\Controllers\ActivityController', 'index']);
+
+$router->get('/settings', ['App\Controllers\SettingsController', 'index']);
+$router->post('/settings/password', ['App\Controllers\SettingsController', 'updatePassword']);
+$router->post('/settings/theme', ['App\Controllers\SettingsController', 'updateTheme']);
+
+
+
 
 
 

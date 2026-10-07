@@ -33,4 +33,22 @@ class User {
             'password' => $hash
         ]);
     }
+
+    public function findById($id) {
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE id = ? LIMIT 1");
+        $stmt->execute([$id]);
+        return $stmt->fetch();
+    }
+
+    public function updatePassword($id, $new_password) {
+        $hash = password_hash($new_password, PASSWORD_DEFAULT);
+        $stmt = $this->db->prepare("UPDATE users SET password_hash = ? WHERE id = ?");
+        return $stmt->execute([$hash, $id]);
+    }
+
+    public function updateTheme($id, $theme) {
+        $stmt = $this->db->prepare("UPDATE users SET theme = ? WHERE id = ?");
+        return $stmt->execute([$theme, $id]);
+    }
 }
+

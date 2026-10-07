@@ -17,4 +17,11 @@ class ActivityLog {
         $stmt->execute([$user_id]);
         return $stmt->fetchAll();
     }
+
+    public function getAllForUser($user_id) {
+        $stmt = $this->db->prepare("SELECT * FROM activity_logs WHERE user_id = ? ORDER BY created_at DESC");
+        $stmt->execute([$user_id]);
+        return $stmt->fetchAll();
+    }
 }
+
