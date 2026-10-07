@@ -6,6 +6,7 @@
 
     # Route all requests to the public directory
     RewriteCond %{REQUEST_URI} !^/public/
+    RewriteCond %{REQUEST_URI} !^/installer/
     RewriteRule ^(.*)$ public/$1 [L,QSA]
 </IfModule>
 
