@@ -14,7 +14,6 @@
         <?php endif; ?>
 
         <form action="/domains/create" method="POST">
-            <input type="hidden" name="csrf_token" value="<?= csrf_token() ?>">
             <div class="mb-6">
                 <label for="domain" class="block text-sm font-medium text-gray-700 mb-1">Domain Name</label>
                 <div class="relative rounded-md shadow-sm">
