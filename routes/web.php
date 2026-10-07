@@ -15,4 +15,11 @@ $router->get('/logout', ['App\Controllers\AuthController', 'logout']);
 
 $router->get('/dashboard', ['App\Controllers\DashboardController', 'index']);
 
+$router->get('/domains', ['App\Controllers\DomainController', 'index']);
+$router->get('/domains/create', ['App\Controllers\DomainController', 'create']);
+$router->post('/domains/create', ['App\Controllers\DomainController', 'store']);
+$router->get('/domains/{id}', ['App\Controllers\DomainController', 'show']);
+$router->post('/domains/{id}/delete', ['App\Controllers\DomainController', 'delete']);
+
+
 

@@ -29,4 +29,27 @@ class Domain {
         $stmt->execute([$user_id]);
         return $stmt->fetchAll();
     }
+
+    public function getAllForUser($user_id) {
+        $stmt = $this->db->prepare("SELECT * FROM domains WHERE user_id = ? ORDER BY created_at DESC");
+        $stmt->execute([$user_id]);
+        return $stmt->fetchAll();
+    }
+
+    public function findByIdAndUser($id, $user_id) {
+        $stmt = $this->db->prepare("SELECT * FROM domains WHERE id = ? AND user_id = ? LIMIT 1");
+        $stmt->execute([$id, $user_id]);
+        return $stmt->fetch();
+    }
+
+    public function create($user_id, $domain_name) {
+        $stmt = $this->db->prepare("INSERT INTO domains (user_id, domain) VALUES (?, ?)");
+        return $stmt->execute([$user_id, $domain_name]);
+    }
+
+    public function delete($id, $user_id) {
+        $stmt = $this->db->prepare("DELETE FROM domains WHERE id = ? AND user_id = ?");
+        return $stmt->execute([$id, $user_id]);
+    }
 }
+
