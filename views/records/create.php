@@ -13,7 +13,8 @@
             <div class="bg-red-50 text-red-700 p-3 rounded mb-6 text-sm"><?= html_escape($error) ?></div>
         <?php endif; ?>
 
-        <form action="/domains/<?= $domain['id'] ?>/records/create" method="POST">
+        <form action="/domains/<?= $domain['id'] ?>
+            <input type="hidden" name="csrf_token" value="<?= csrf_token() ?>">/records/create" method="POST">
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>

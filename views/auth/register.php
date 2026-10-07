@@ -15,6 +15,7 @@
         <?php endif; ?>
 
         <form class="mt-8 space-y-6" action="/register" method="POST">
+            <input type="hidden" name="csrf_token" value="<?= csrf_token() ?>">
             <div class="rounded-md shadow-sm -space-y-px">
                 <div>
                     <label for="username" class="sr-only">Username</label>

@@ -35,6 +35,10 @@ class Router {
                 $pattern = "#^" . $pattern . "$#";
                 
                 if (preg_match($pattern, $requestUri, $matches)) {
+                    if ($requestMethod === 'POST') {
+                        verify_csrf();
+                    }
+                    
                     array_shift($matches); // remove full match
                     
                     if (is_callable($route['action'])) {
