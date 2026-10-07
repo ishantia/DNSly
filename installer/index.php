@@ -18,9 +18,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $appUrl = $_POST['app_url'] ?? 'http://localhost';
 
         try {
-            // Test connection
-            $dsn = "mysql:host=$dbHost;port=$dbPort;dbname=$dbName;charset=utf8mb4";
+            // Connect to MySQL without specifying the database first
+            $dsn = "mysql:host=$dbHost;port=$dbPort;charset=utf8mb4";
             $pdo = new PDO($dsn, $dbUser, $dbPass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+
+            // Auto-create the database if it doesn't exist
+            $pdo->exec("CREATE DATABASE IF NOT EXISTS `$dbName` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
+            
+            // Now select the database
+            $pdo->exec("USE `$dbName`");
 
             // Connection successful, write .env
             $envContent = "APP_NAME=DNSly\n";
