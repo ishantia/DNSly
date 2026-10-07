@@ -1,0 +1,7 @@
+/vendor/
+node_modules/
+.env
+storage/logs/*.log
+!storage/logs/.gitkeep
+.phpunit.cache/
+.DS_Store
