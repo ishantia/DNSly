@@ -27,6 +27,20 @@ class Router {
             $requestUri = substr($requestUri, 0, $pos);
         }
 
+        // Handle subdirectory execution (e.g. localhost/DNSly)
+        $scriptName = dirname($_SERVER['SCRIPT_NAME']); // e.g. /DNSly/public
+        // Strip /public if it exists at the end
+        if (substr($scriptName, -7) === '/public') {
+            $scriptName = substr($scriptName, 0, -7);
+        }
+        
+        if ($scriptName !== '/' && $scriptName !== '\\' && strpos($requestUri, $scriptName) === 0) {
+            $requestUri = substr($requestUri, strlen($scriptName));
+            if (empty($requestUri)) {
+                $requestUri = '/';
+            }
+        }
+
         foreach ($this->routes as $route) {
             if ($route['method'] === $requestMethod) {
                 // simple route matching (no params for now, we can add later if needed)

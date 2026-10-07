@@ -4,9 +4,9 @@
     # Block access to hidden files and directories
     RewriteRule "(^|/)\." - [F]
 
-    # Route all requests to the public directory
-    RewriteCond %{REQUEST_URI} !^/public/
-    RewriteCond %{REQUEST_URI} !^/installer/
+    # Route all requests to the public directory unless they are for public or installer
+    RewriteCond %{REQUEST_URI} !/public/
+    RewriteCond %{REQUEST_URI} !/installer/
     RewriteRule ^(.*)$ public/$1 [L,QSA]
 </IfModule>
 
