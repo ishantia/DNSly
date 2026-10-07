@@ -21,5 +21,12 @@ $router->post('/domains/create', ['App\Controllers\DomainController', 'store']);
 $router->get('/domains/{id}', ['App\Controllers\DomainController', 'show']);
 $router->post('/domains/{id}/delete', ['App\Controllers\DomainController', 'delete']);
 
+$router->get('/domains/{domain_id}/records/create', ['App\Controllers\RecordController', 'create']);
+$router->post('/domains/{domain_id}/records/create', ['App\Controllers\RecordController', 'store']);
+$router->get('/domains/{domain_id}/records/{id}/edit', ['App\Controllers\RecordController', 'edit']);
+$router->post('/domains/{domain_id}/records/{id}/edit', ['App\Controllers\RecordController', 'update']);
+$router->post('/domains/{domain_id}/records/{id}/delete', ['App\Controllers\RecordController', 'delete']);
+
+
 
 

@@ -74,10 +74,9 @@ class DomainController {
             redirect('/domains');
         }
 
-        // We will fetch records here later
+        // Fetch records
         $recordModel = new Record();
-        // $records = $recordModel->getAllForDomain($domain['id']);
-        $records = []; 
+        $records = $recordModel->getAllForDomain($domain['id']);
 
         view('domains.show', [
             'title' => $domain['domain'] . ' - ' . env('APP_NAME'),
