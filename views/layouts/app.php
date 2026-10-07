@@ -30,6 +30,9 @@
                         <a href="/domains" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Domains</a>
                         <a href="/activity" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Activity</a>
                         <a href="/settings" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Settings</a>
+                        <?php if ($_SESSION['role'] === 'admin'): ?>
+                            <a href="/admin" class="text-indigo-600 hover:text-indigo-800 px-3 py-2 rounded-md text-sm font-medium">Admin</a>
+                        <?php endif; ?>
                         <div class="ml-4 relative flex items-center gap-4">
                             <span class="text-sm text-gray-700 font-medium"><?= html_escape($_SESSION['username']) ?></span>
                             <a href="/logout" class="text-gray-500 hover:text-gray-900 text-sm font-medium">Logout</a>

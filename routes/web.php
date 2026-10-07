@@ -33,6 +33,9 @@ $router->get('/settings', ['App\Controllers\SettingsController', 'index']);
 $router->post('/settings/password', ['App\Controllers\SettingsController', 'updatePassword']);
 $router->post('/settings/theme', ['App\Controllers\SettingsController', 'updateTheme']);
 
+$router->get('/admin', ['App\Controllers\AdminController', 'index']);
+
+
 
 
 
