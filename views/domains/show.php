@@ -11,8 +11,7 @@
                 <?= html_escape(ucfirst($domain['status'])) ?>
             </span>
         </div>
-        <form action="<?= url('/domains/<?= $domain['id'] ?>
-            <input type=') ?>"hidden" name="csrf_token" value="<?= csrf_token() ?>">/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete this domain? This cannot be undone.');">
+        <form action="<?= url('/domains/' . $domain[') ?>"hidden" name="csrf_token" value="<?= csrf_token() ?>">/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete this domain? This cannot be undone.');">
             <button type="submit" class="inline-flex items-center px-3 py-1.5 border border-red-200 text-xs font-medium rounded text-red-600 bg-red-50 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors">
                 Delete Domain
             </button>
@@ -34,7 +33,7 @@
     <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
             <h2 class="text-lg font-medium text-gray-900">DNS Records</h2>
-            <a href="<?= url('/domains/<?= $domain['id'] ?>/records/create') ?>" class="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <a href="<?= url('/domains/' . $domain[') ?>" class="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Add Record
             </a>
         </div>
@@ -63,9 +62,8 @@
                                 <td class="px-6 py-4 text-gray-500 max-w-xs truncate"><?= html_escape($record['value']) ?></td>
                                 <td class="px-6 py-4 whitespace-nowrap text-gray-500"><?= html_escape($record['ttl']) ?></td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium font-sans">
-                                    <a href="<?= url('/domains/<?= $domain['id'] ?>/records/<?= $record['id'] ?>/edit') ?>" class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
-                                    <form action="<?= url('/domains/<?= $domain['id'] ?>
-            <input type=') ?>"hidden" name="csrf_token" value="<?= csrf_token() ?>">/records/<?= $record['id'] ?>/delete" method="POST" class="inline" onsubmit="return confirm('Delete this record?');">
+                                    <a href="<?= url('/domains/' . $domain[') ?>" class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
+                                    <form action="<?= url('/domains/' . $domain[') ?>"hidden" name="csrf_token" value="<?= csrf_token() ?>">/records/<?= $record['id'] ?>/delete" method="POST" class="inline" onsubmit="return confirm('Delete this record?');">
                                         <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>
                                     </form>
                                 </td>
