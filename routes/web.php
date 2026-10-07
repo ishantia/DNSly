@@ -13,3 +13,6 @@ $router->get('/register', ['App\Controllers\AuthController', 'showRegister']);
 $router->post('/register', ['App\Controllers\AuthController', 'register']);
 $router->get('/logout', ['App\Controllers\AuthController', 'logout']);
 
+$router->get('/dashboard', ['App\Controllers\DashboardController', 'index']);
+
+

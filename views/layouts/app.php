@@ -26,8 +26,12 @@
                 </div>
                 <div class="flex items-center">
                     <?php if (isset($_SESSION['user_id'])): ?>
-                        <a href="/dashboard" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
-                        <a href="/logout" class="ml-4 text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Logout</a>
+                        <a href="/dashboard" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+                        <a href="/domains" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Domains</a>
+                        <div class="ml-4 relative flex items-center gap-4">
+                            <span class="text-sm text-gray-700 font-medium"><?= html_escape($_SESSION['username']) ?></span>
+                            <a href="/logout" class="text-gray-500 hover:text-gray-900 text-sm font-medium">Logout</a>
+                        </div>
                     <?php else: ?>
                         <a href="/login" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Login</a>
                         <a href="/register" class="ml-4 bg-indigo-600 text-white hover:bg-indigo-700 px-3 py-2 rounded-md text-sm font-medium">Register</a>
