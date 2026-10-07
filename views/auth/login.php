@@ -4,7 +4,7 @@
             <h2 class="mt-2 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
             <p class="mt-2 text-center text-sm text-gray-600">
                 Or
-                <a href="<?= url('/register') ?>" class="font-medium text-indigo-600 hover:text-indigo-500">
+                <a href="/register" class="font-medium text-indigo-600 hover:text-indigo-500">
                     create a new account
                 </a>
             </p>
@@ -18,7 +18,7 @@
             <div class="bg-red-50 text-red-700 p-3 rounded text-sm text-center"><?= html_escape($error) ?></div>
         <?php endif; ?>
 
-        <form class="mt-8 space-y-6" action="<?= url('/login') ?>" method="POST">
+        <form class="mt-8 space-y-6" action="/login" method="POST">
             <input type="hidden" name="csrf_token" value="<?= csrf_token() ?>">
             <div class="rounded-md shadow-sm -space-y-px">
                 <div>

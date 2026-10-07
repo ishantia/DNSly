@@ -36,7 +36,7 @@
     </div>
     <div class="md:col-span-2">
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <form action="<?= url('/settings/theme') ?>" method="POST">
+            <form action="/settings/theme" method="POST">
             <input type="hidden" name="csrf_token" value="<?= csrf_token() ?>">
                 <label for="theme" class="block text-sm font-medium text-gray-700 mb-2">Theme</label>
                 <select id="theme" name="theme" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md px-3 py-2 border bg-white mb-4">
@@ -67,7 +67,7 @@
                 <div class="bg-green-50 text-green-700 p-3 rounded mb-4 text-sm"><?= html_escape($password_success) ?></div>
             <?php endif; ?>
 
-            <form action="<?= url('/settings/password') ?>" method="POST">
+            <form action="/settings/password" method="POST">
             <input type="hidden" name="csrf_token" value="<?= csrf_token() ?>">
                 <div class="mb-4">
                     <label for="current_password" class="block text-sm font-medium text-gray-700 mb-1">Current Password</label>
